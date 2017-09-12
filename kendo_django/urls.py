@@ -21,7 +21,7 @@ from mainApp import views
 from mainApp.models import Client
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^json$', views.ClientJsonView.as_view(), name='client-json'),
+    url(r'^client_json$', views.ClientJsonView.as_view(), name='client-json'),
     url(r'^$', views.ClientListView.as_view(), name='client-list'),
     #url(r'^kendo_data$',KendoListProviderView.as_view(model=Client), name='client_kendo')
 

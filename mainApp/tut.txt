@@ -1,0 +1,29 @@
+                  The most naive way of integrating kendo-ui grid in your project is super simple. Just render a table you normally do then initialize kedno grid with table's id like this:
+
+$(document).ready(function () {
+        $("#grid").kendoGrid({
+            height: 550,
+            sortable: true,
+            scrollable: true,
+            filterable: true,
+            pageable: {
+                input: true,
+                numeric: false
+            },
+        });
+    });
+
+Here, 'grid' is the id for the table. This will provide your mindless table a mind and you will be able to interact the table with many ways.
+ various interactive functionality like sorting, searching/filtering and pagination.
+This approach is well enough for cases where your table contains small amount of data like a few hundred. In such cases we don't have to worry about our backend. Just include
+the necessary libraries and initiate the table using few lines of javascript.
+
+But this is not the ideal scenario right? There might be few thousand to millions of data in your table. If that so, rendering the table with celestial number of
+ rows and let kendo do everything doesn't just seem a good idea. Because every time you reload the page or if that page is accessed by many people at the same time might
+ cause bleeding in the server and obviously it would be slow at clients end too.
+
+What we can do is not just get the whole table at the start, rather get a portion of it and leave option for the user to decide how much or which set of data he wants to
+see on the table. Then we might need to take help from the server to filter or sort our data properly. In short, we have to open ways to let kendo and our server
+  to talk with each other properly.
+
+

@@ -14,18 +14,14 @@
 </head>
 </head>
 <body>
-<div id="grid">
-
-
-</div>
+    <div id="grid">
+    </div>
 <script>
     $(document).ready(
         function () {
             var dataSourceArguments = {
-                pageSize: 12,
+                pageSize: 5,
                 serverPaging: true,
-                //serverFiltering: true,
-                //serverSorting: true,
                 transport: {
                     read: {
                         url: "{% url 'client-json' %}",
@@ -38,9 +34,9 @@
                 }
             }
 
-            var dsg = new kendo.data.DataSource(dataSourceArguments);
+            var ds = new kendo.data.DataSource(dataSourceArguments);
             $("#grid").kendoGrid({
-                dataSource: dsg,
+                dataSource: ds,
                 height: 600,
                 filterable: true,
                 sortable: true,
@@ -52,19 +48,19 @@
                 columns: [
                     {
                     field: "id",
-                    title: "Example ID"
+                    title: "ID"
                     },
                     {
                     field: "name",
-                    title: "Example name"
+                    title: "Name"
                     },
                     {
                         field: "occupation",
-                        title: "Example occupation"
+                        title: "Occupation"
                     },
                     {
                         field: "date_of_birth",
-                        title: "Example dob"
+                        title: "Birthday"
                     },
                 ]
             });

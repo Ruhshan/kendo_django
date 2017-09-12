@@ -24,17 +24,15 @@ class ClientSerializer(serializers.ModelSerializer):
         model = Client
         fields = '__all__'
 
-# Create your views here.
-class ClientListView(generic.ListView):
-    model = Client
-    def get_context_data(self, **kwargs):
-        context = super(ClientListView, self).get_context_data(**kwargs)
-        return context
 
 class ClientJsonView(generics.ListAPIView):
     serializer_class = ClientSerializer
     pagination_class = ClientPageNumberPagination
 
     def get_queryset(self, *args, **kwargs):
-        print self.request.GET
         return Client.objects.all()
+
+
+class ClientListView(View):
+    def get(self, *args, **kwargs):
+        return render(self.request, "mainApp/client_list.html")
